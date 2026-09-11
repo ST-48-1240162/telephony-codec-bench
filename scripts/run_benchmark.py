@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Full benchmark driver for Colab / GPU VM — writes JSON + CSV summary."""
+"""Full benchmark driver for Colab / GPU VM. Writes JSON + CSV summary."""
 
 from __future__ import annotations
 

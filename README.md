@@ -1,25 +1,26 @@
 # telephony-codec-bench
 
-After speech goes through a phone channel (narrowband, μ-law, background noise), how much comes back if you run a neural codec round-trip?
+Phone audio is narrowband, companded, and often noisy. This repo asks a simple question: if you run that speech through a neural codec and back out, how much is left?
 
-This repo compares **SNAC** (multi-scale tokens, the family Bland and others use for LLM-TTS) against **EnCodec** (Meta's RVQ baseline). The benchmark reports STOI, PESQ, SNR, and encode/decode latency.
+We compare **SNAC** (multi-scale tokens, the kind used in LLM-TTS stacks like Bland) with **EnCodec** (Meta's RVQ baseline). You get STOI, PESQ, SNR, and encode/decode timing.
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ST-48-1240162/telephony-codec-bench/blob/main/docs/Telephony_Codec_Bench.ipynb)
 
-Notebook: [docs/Telephony_Codec_Bench.ipynb](docs/Telephony_Codec_Bench.ipynb) / step-by-step: [docs/COLAB.md](docs/COLAB.md)
+**Notebook:** [docs/Telephony_Codec_Bench.ipynb](docs/Telephony_Codec_Bench.ipynb)  
+**Walkthrough:** [docs/COLAB.md](docs/COLAB.md)
 
 ## What runs where
 
-| What | Where |
+| Step | Where |
 |------|-------|
-| LibriTTS + noisekit telephony WAVs | Colab T4 (~2-3 h for 200 utterances × 3 presets) |
-| SNAC vs EnCodec numbers | Colab T4 (or any CUDA box) |
+| Build telephony WAVs (FLEURS + noisekit) | Colab T4, about 2-3 h for 200 utterances × 3 presets |
+| SNAC vs EnCodec benchmark | Colab T4 or any CUDA machine |
 
 ## Install
 
-**Colab:** use the notebook install cell (pinned [`docs/colab-requirements.txt`](docs/colab-requirements.txt), do not `pip install torch` from PyPI).
+**Colab:** run the notebook install cell. Pins live in [`docs/colab-requirements.txt`](docs/colab-requirements.txt). Do not `pip install torch` from PyPI on Colab.
 
-**Local GPU:** install a matched `torch` / `torchaudio` stack first, then:
+**Local GPU:** install a matching `torch` / `torchaudio` pair first, then:
 
 ```sh
 python3.11 -m venv ~/.venvs/telephony-codec-bench
@@ -28,7 +29,7 @@ python3.11 -m venv ~/.venvs/telephony-codec-bench
 python scripts/verify_colab_env.py
 ```
 
-Use a normal Linux filesystem (exFAT drives often break `.venv` symlinks).
+Use a normal Linux filesystem. exFAT drives often break `.venv` symlinks.
 
 ## Full benchmark
 
@@ -40,7 +41,7 @@ python scripts/run_benchmark.py \
   --out reports/benchmark.json
 ```
 
-Generate `./data/telephony_speech` with noisekit first (cells in the Colab notebook).
+Generate `./data/telephony_speech` with noisekit first (see the Colab notebook).
 
 ## Pipeline
 
@@ -73,7 +74,7 @@ flowchart TD
     MET["STOI, PESQ, SNR<br/>encode / decode latency"]
 ```
 
-Local `degrade.py` uses a simple 8 kHz bandpass + μ-law + upsample. Colab runs use [noisekit](https://github.com/karamouche/noisekit) `telecom` presets for reproducible benchmark numbers.
+For a quick local test, `degrade.py` applies a simple 8 kHz bandpass, μ-law, and upsample. Full benchmark runs use [noisekit](https://github.com/karamouche/noisekit) `telecom` presets so numbers stay reproducible.
 
 Codecs: [SNAC](https://github.com/hubertsiuzdak/snac) and EnCodec via HuggingFace `facebook/encodec_24khz`.
 
@@ -87,4 +88,4 @@ Codecs: [SNAC](https://github.com/hubertsiuzdak/snac) and EnCodec via HuggingFac
 
 ## License
 
-GPL-3.0-or-later; see [LICENSE](LICENSE).
+GPL-3.0-or-later. See [LICENSE](LICENSE).

@@ -1,45 +1,41 @@
 # Colab CLI (terminal workflow)
 
-Use [google-colab-cli](https://github.com/googlecolab/google-colab-cli) to provision a T4 VM, run install/verify, and debug from your terminal.
+Run Colab from your terminal with [google-colab-cli](https://github.com/googlecolab/google-colab-cli): spin up a T4, install deps, and debug without clicking through the notebook UI.
 
-> **Note:** `colab ssh` is documented upstream but not in CLI 0.6.0 yet. Use `colab console -s SESSION` for a remote shell, or `colab exec` for Python.
+> **Note:** `colab ssh` is documented upstream but not in CLI 0.6.0. Use `colab console -s SESSION` for a shell, or `colab exec` for one-off Python.
 
 ## One-time auth
 
-Install (if needed):
+Install if needed:
 
 ```bash
 uv tool install google-colab-cli
 ```
 
-Authenticate (browser opens; paste the code back into the terminal):
+Log in (browser opens, paste the code back):
 
 ```bash
 colab sessions
 ```
 
-Or provision a session (also triggers auth):
+Or start a session (also triggers auth):
 
 ```bash
 colab new -s bench --gpu T4
 ```
 
-Token is stored at `~/.config/colab-cli/token.json`.
+Token lands in `~/.config/colab-cli/token.json`.
 
-## Automated debug (recommended)
+## Automated debug
 
-From repo root, after auth:
+From the repo root, after auth:
 
 ```bash
 chmod +x scripts/run_colab_debug.sh
 ./scripts/run_colab_debug.sh bench
 ```
 
-This will:
-
-1. `colab new -s bench --gpu T4`
-2. Run `scripts/colab_remote_setup.py` (clone, install, `pip check`, `verify_colab_env.py`)
-3. Print `colab status` and export `reports/colab-debug.md`
+That provisions `bench` on T4, runs `scripts/colab_remote_setup.py` (clone, install, `pip check`, `verify_colab_env.py`), prints `colab status`, and writes `reports/colab-debug.md`.
 
 ## Manual commands
 
@@ -47,10 +43,10 @@ This will:
 # Provision GPU
 colab new -s bench --gpu T4
 
-# Run setup script (local file executes on remote VM)
+# Run setup (local script, remote VM)
 colab exec -s bench -f scripts/colab_remote_setup.py --timeout 900
 
-# Remote shell (SSH-like)
+# Remote shell
 colab console -s bench
 
 # Interactive Python
@@ -60,19 +56,19 @@ colab repl -s bench
 colab stop -s bench
 ```
 
-## Ephemeral one-liner
+## One-liner
 
 ```bash
 colab run --gpu T4 --keep --timeout 900 scripts/colab_remote_setup.py
 ```
 
-`--keep` leaves the session running for follow-up `colab exec -s ...`.
+`--keep` leaves the session up for follow-up `colab exec` calls.
 
 ## Troubleshooting
 
 | Issue | Fix |
 |-------|-----|
-| Auth code prompt | Complete OAuth in browser; paste code |
-| `cuda: False` in setup | Use `--gpu T4` on `colab new`, not CPU default |
-| Exec timeout | Increase: `--timeout 900` |
-| No `colab ssh` | Use `colab console` (0.6.0) |
+| Auth code prompt | Finish OAuth in the browser, paste the code |
+| `cuda: False` in setup | Pass `--gpu T4` to `colab new`, not the CPU default |
+| Exec timeout | Bump with `--timeout 900` |
+| No `colab ssh` | Use `colab console` on 0.6.0 |
