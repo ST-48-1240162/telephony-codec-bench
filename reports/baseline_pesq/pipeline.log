@@ -1,0 +1,33 @@
+Pipeline: samples=200 out=/content/telephony-codec-bench/reports/benchmark_200.json
+
+$ /usr/bin/python3 scripts/colab_prefetch_musan.py
+MUSAN cache ready: 20 files in /root/.cache/noisekit/noise/musan_ambient
+
+$ noisekit generate --dataset google/fleurs --config en_us --split test --samples 200 --preset clean_reference --preset telecom --preset noise_telecom --output /content/telephony-codec-bench/data/telephony_speech --seed 42 --noise-dir /root/.cache/noisekit/noise/musan_ambient
+Loading 200 samples from google/fleurs (split=test) …
+Loaded 200 samples.
+Generating … ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:04:09
+
+Done. 600 files written to /content/telephony-codec-bench/data/telephony_speech
+Metadata: /content/telephony-codec-bench/data/telephony_speech/metadata.jsonl
+
+$ /usr/bin/python3 scripts/run_benchmark.py --data-dir /content/telephony-codec-bench/data/telephony_speech --device cuda --max-samples 200 --eval-sr 8000 --pesq --pesq-mode nb --out /content/telephony-codec-bench/reports/benchmark_200.json
+Wrote /content/telephony-codec-bench/reports/benchmark_200.json
+Wrote /content/telephony-codec-bench/reports/benchmark_200.csv
+  encodec_24khz    clean_reference    STOI=0.784 PESQ=2.269 encode=70.57235855222304ms
+  encodec_24khz    noise_telecom      STOI=0.767 PESQ=2.169 encode=52.794219227294114ms
+  encodec_24khz    telecom            STOI=0.784 PESQ=2.343 encode=60.39249034328445ms
+  snac_24khz       clean_reference    STOI=0.795 PESQ=2.581 encode=48.75864526868317ms
+  snac_24khz       noise_telecom      STOI=0.770 PESQ=1.986 encode=10.070712136377386ms
+  snac_24khz       telecom            STOI=0.804 PESQ=2.320 encode=9.75414785075169ms
+
+codec|preset                                 STOI     PESQ     enc_ms     dec_ms
+--------------------------------------------------------------------------------
+encodec_24khz|clean_reference              0.7843    2.269      70.57      62.39
+encodec_24khz|noise_telecom                0.7669    2.169      52.79      54.72
+encodec_24khz|telecom                      0.7841    2.343      60.39      56.45
+snac_24khz|clean_reference                 0.7946    2.581      48.76      16.19
+snac_24khz|noise_telecom                   0.7696    1.986      10.07       8.36
+snac_24khz|telecom                         0.8037    2.320       9.75       8.28
+
+DONE

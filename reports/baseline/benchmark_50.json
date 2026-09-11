@@ -1,0 +1,1766 @@
+{
+  "samples": [
+    {
+      "preset": "clean_reference",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/1116401173651214130_clean_reference.wav",
+      "snr_db": 2.5598132472214807,
+      "stoi": 0.9227025573264378,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 938,
+        "code_levels": [
+          134,
+          268,
+          536
+        ],
+        "encode_ms": 1590.3179629999613,
+        "decode_ms": 149.62562900018384
+      }
+    },
+    {
+      "preset": "clean_reference",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/1116401173651214130_clean_reference.wav",
+      "snr_db": 3.2186768203723286,
+      "stoi": 0.8837297381220529,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 1710,
+        "code_levels": [],
+        "encode_ms": 242.0237639998959,
+        "decode_ms": 116.77856100004647
+      }
+    },
+    {
+      "preset": "telecom",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/1116401173651214130_telecom.wav",
+      "snr_db": -0.642705154649486,
+      "stoi": 0.8771281598170602,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 938,
+        "code_levels": [
+          134,
+          268,
+          536
+        ],
+        "encode_ms": 9.279414000047836,
+        "decode_ms": 7.5630500000443135
+      }
+    },
+    {
+      "preset": "telecom",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/1116401173651214130_telecom.wav",
+      "snr_db": 1.9430870052593612,
+      "stoi": 0.8427803605027053,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 1710,
+        "code_levels": [],
+        "encode_ms": 71.96614899976339,
+        "decode_ms": 67.61819799976365
+      }
+    },
+    {
+      "preset": "noise_telecom",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/1116401173651214130_noise_telecom.wav",
+      "snr_db": -0.3506074659715296,
+      "stoi": 0.8052552617025585,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 938,
+        "code_levels": [
+          134,
+          268,
+          536
+        ],
+        "encode_ms": 8.314067000355863,
+        "decode_ms": 7.061846999931731
+      }
+    },
+    {
+      "preset": "noise_telecom",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/1116401173651214130_noise_telecom.wav",
+      "snr_db": 1.6459357378467194,
+      "stoi": 0.789117651247237,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 1710,
+        "code_levels": [],
+        "encode_ms": 71.63583500005188,
+        "decode_ms": 75.70616799966956
+      }
+    },
+    {
+      "preset": "clean_reference",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/3364947814969998944_clean_reference.wav",
+      "snr_db": 1.5779999952609358,
+      "stoi": 0.8862157695772639,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 686,
+        "code_levels": [
+          98,
+          196,
+          392
+        ],
+        "encode_ms": 22.419450000143115,
+        "decode_ms": 14.478048000000854
+      }
+    },
+    {
+      "preset": "clean_reference",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/3364947814969998944_clean_reference.wav",
+      "snr_db": 3.1217654218892554,
+      "stoi": 0.8385979885485021,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 1242,
+        "code_levels": [],
+        "encode_ms": 59.871583999665745,
+        "decode_ms": 46.40629000004992
+      }
+    },
+    {
+      "preset": "telecom",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/3364947814969998944_telecom.wav",
+      "snr_db": 0.8953937673519017,
+      "stoi": 0.8594619868432912,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 686,
+        "code_levels": [
+          98,
+          196,
+          392
+        ],
+        "encode_ms": 9.226627999851189,
+        "decode_ms": 7.346455000060814
+      }
+    },
+    {
+      "preset": "telecom",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/3364947814969998944_telecom.wav",
+      "snr_db": 3.3715411407609714,
+      "stoi": 0.8266247964713426,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 1244,
+        "code_levels": [],
+        "encode_ms": 70.53365299998404,
+        "decode_ms": 65.16711899985239
+      }
+    },
+    {
+      "preset": "noise_telecom",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/3364947814969998944_noise_telecom.wav",
+      "snr_db": 0.17550025837753477,
+      "stoi": 0.81340610142173,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 686,
+        "code_levels": [
+          98,
+          196,
+          392
+        ],
+        "encode_ms": 10.10288599991327,
+        "decode_ms": 8.437161000074411
+      }
+    },
+    {
+      "preset": "noise_telecom",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/3364947814969998944_noise_telecom.wav",
+      "snr_db": 3.286832898552196,
+      "stoi": 0.7917744355989106,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 1244,
+        "code_levels": [],
+        "encode_ms": 42.62674399979005,
+        "decode_ms": 42.78622800029552
+      }
+    },
+    {
+      "preset": "clean_reference",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/2024594662850694945_clean_reference.wav",
+      "snr_db": -1.7658809168409366,
+      "stoi": 0.5950897408318887,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 749,
+        "code_levels": [
+          107,
+          214,
+          428
+        ],
+        "encode_ms": 22.811266999724467,
+        "decode_ms": 14.855478000299627
+      }
+    },
+    {
+      "preset": "clean_reference",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/2024594662850694945_clean_reference.wav",
+      "snr_db": 4.584664685994798,
+      "stoi": 0.6618881979145013,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 1360,
+        "code_levels": [],
+        "encode_ms": 60.45132499957617,
+        "decode_ms": 56.28106300036961
+      }
+    },
+    {
+      "preset": "telecom",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/2024594662850694945_telecom.wav",
+      "snr_db": -1.45321602950958,
+      "stoi": 0.5997019313431307,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 749,
+        "code_levels": [
+          107,
+          214,
+          428
+        ],
+        "encode_ms": 9.952902999884827,
+        "decode_ms": 7.721568999841111
+      }
+    },
+    {
+      "preset": "telecom",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/2024594662850694945_telecom.wav",
+      "snr_db": 3.873863158762962,
+      "stoi": 0.6776171600683311,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 1360,
+        "code_levels": [],
+        "encode_ms": 64.91114100026607,
+        "decode_ms": 60.352392999902804
+      }
+    },
+    {
+      "preset": "noise_telecom",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/2024594662850694945_noise_telecom.wav",
+      "snr_db": -1.1557533248406011,
+      "stoi": 0.7241787205469704,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 749,
+        "code_levels": [
+          107,
+          214,
+          428
+        ],
+        "encode_ms": 9.509028000138642,
+        "decode_ms": 8.564585999920382
+      }
+    },
+    {
+      "preset": "noise_telecom",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/2024594662850694945_noise_telecom.wav",
+      "snr_db": 2.9062928500803937,
+      "stoi": 0.7425087235098062,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 1360,
+        "code_levels": [],
+        "encode_ms": 48.17177199993239,
+        "decode_ms": 49.02544900005523
+      }
+    },
+    {
+      "preset": "clean_reference",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/15935462347202880059_clean_reference.wav",
+      "snr_db": 3.083018310686943,
+      "stoi": 0.6845723223224179,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 833,
+        "code_levels": [
+          119,
+          238,
+          476
+        ],
+        "encode_ms": 22.60445100000652,
+        "decode_ms": 14.822398999967845
+      }
+    },
+    {
+      "preset": "clean_reference",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/15935462347202880059_clean_reference.wav",
+      "snr_db": 3.0328854527755356,
+      "stoi": 0.6760559616093331,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 1522,
+        "code_levels": [],
+        "encode_ms": 64.22848100010015,
+        "decode_ms": 71.2314829997922
+      }
+    },
+    {
+      "preset": "telecom",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/15935462347202880059_telecom.wav",
+      "snr_db": -0.11864693602423337,
+      "stoi": 0.8311688262828889,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 833,
+        "code_levels": [
+          119,
+          238,
+          476
+        ],
+        "encode_ms": 11.523158999807492,
+        "decode_ms": 11.925067999982275
+      }
+    },
+    {
+      "preset": "telecom",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/15935462347202880059_telecom.wav",
+      "snr_db": 2.6067249477500223,
+      "stoi": 0.8028738984851569,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 1522,
+        "code_levels": [],
+        "encode_ms": 62.126672999966104,
+        "decode_ms": 50.93188199998622
+      }
+    },
+    {
+      "preset": "noise_telecom",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/15935462347202880059_noise_telecom.wav",
+      "snr_db": 0.7347414777873901,
+      "stoi": 0.7979709572415387,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 833,
+        "code_levels": [
+          119,
+          238,
+          476
+        ],
+        "encode_ms": 9.02134899979501,
+        "decode_ms": 7.394204000320315
+      }
+    },
+    {
+      "preset": "noise_telecom",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/15935462347202880059_noise_telecom.wav",
+      "snr_db": 2.487058456618957,
+      "stoi": 0.7865789649946655,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 1522,
+        "code_levels": [],
+        "encode_ms": 49.116601000150695,
+        "decode_ms": 51.270809000016015
+      }
+    },
+    {
+      "preset": "clean_reference",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/15820671163473629623_clean_reference.wav",
+      "snr_db": 3.0364015347329234,
+      "stoi": 0.8285323989776415,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 1001,
+        "code_levels": [
+          143,
+          286,
+          572
+        ],
+        "encode_ms": 22.891202999744564,
+        "decode_ms": 15.804674999799317
+      }
+    },
+    {
+      "preset": "clean_reference",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/15820671163473629623_clean_reference.wav",
+      "snr_db": 3.9327469013178624,
+      "stoi": 0.8048609227638114,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 1818,
+        "code_levels": [],
+        "encode_ms": 71.77588100012144,
+        "decode_ms": 61.57508299975234
+      }
+    },
+    {
+      "preset": "telecom",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/15820671163473629623_telecom.wav",
+      "snr_db": -2.497715834378225,
+      "stoi": 0.8421217678262971,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 1001,
+        "code_levels": [
+          143,
+          286,
+          572
+        ],
+        "encode_ms": 8.945459000187839,
+        "decode_ms": 7.332376999784174
+      }
+    },
+    {
+      "preset": "telecom",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/15820671163473629623_telecom.wav",
+      "snr_db": 3.6153312331624523,
+      "stoi": 0.8083308461221278,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 1818,
+        "code_levels": [],
+        "encode_ms": 67.96664199964653,
+        "decode_ms": 60.014800999852014
+      }
+    },
+    {
+      "preset": "noise_telecom",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/15820671163473629623_noise_telecom.wav",
+      "snr_db": 1.5386455807703558,
+      "stoi": 0.8230694958241634,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 1001,
+        "code_levels": [
+          143,
+          286,
+          572
+        ],
+        "encode_ms": 9.267875000205095,
+        "decode_ms": 8.564839999962715
+      }
+    },
+    {
+      "preset": "noise_telecom",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/15820671163473629623_noise_telecom.wav",
+      "snr_db": 3.2348987203078257,
+      "stoi": 0.80688269402678,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 1818,
+        "code_levels": [],
+        "encode_ms": 49.744088999887026,
+        "decode_ms": 60.717421999925136
+      }
+    },
+    {
+      "preset": "clean_reference",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/4491697341889976683_clean_reference.wav",
+      "snr_db": 3.6176385209327115,
+      "stoi": 0.8243388823028711,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 686,
+        "code_levels": [
+          98,
+          196,
+          392
+        ],
+        "encode_ms": 8.837903000312508,
+        "decode_ms": 7.252642999901582
+      }
+    },
+    {
+      "preset": "clean_reference",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/4491697341889976683_clean_reference.wav",
+      "snr_db": 3.974531338632657,
+      "stoi": 0.8043060383557828,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 1242,
+        "code_levels": [],
+        "encode_ms": 41.734704000191414,
+        "decode_ms": 42.04329599997436
+      }
+    },
+    {
+      "preset": "telecom",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/4491697341889976683_telecom.wav",
+      "snr_db": 2.3547012334121007,
+      "stoi": 0.8609224062502662,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 686,
+        "code_levels": [
+          98,
+          196,
+          392
+        ],
+        "encode_ms": 8.853961000113486,
+        "decode_ms": 7.392178999907628
+      }
+    },
+    {
+      "preset": "telecom",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/4491697341889976683_telecom.wav",
+      "snr_db": 3.121917187192225,
+      "stoi": 0.8180481665572363,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 1244,
+        "code_levels": [],
+        "encode_ms": 42.355291999683686,
+        "decode_ms": 42.45426499983296
+      }
+    },
+    {
+      "preset": "noise_telecom",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/4491697341889976683_noise_telecom.wav",
+      "snr_db": 1.629228643784328,
+      "stoi": 0.8204641135394452,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 686,
+        "code_levels": [
+          98,
+          196,
+          392
+        ],
+        "encode_ms": 9.252004000245506,
+        "decode_ms": 7.402194999940548
+      }
+    },
+    {
+      "preset": "noise_telecom",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/4491697341889976683_noise_telecom.wav",
+      "snr_db": 3.3305752490676093,
+      "stoi": 0.8094760499445451,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 1244,
+        "code_levels": [],
+        "encode_ms": 41.81552599993665,
+        "decode_ms": 42.25132700003087
+      }
+    },
+    {
+      "preset": "clean_reference",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/11147918080606585533_clean_reference.wav",
+      "snr_db": -1.7330141177620841,
+      "stoi": 0.5960094801376978,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 875,
+        "code_levels": [
+          125,
+          250,
+          500
+        ],
+        "encode_ms": 22.511230999953113,
+        "decode_ms": 14.732258000094589
+      }
+    },
+    {
+      "preset": "clean_reference",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/11147918080606585533_clean_reference.wav",
+      "snr_db": 5.037708937090068,
+      "stoi": 0.672438205081762,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 1594,
+        "code_levels": [],
+        "encode_ms": 67.1379519999391,
+        "decode_ms": 65.28345200013064
+      }
+    },
+    {
+      "preset": "telecom",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/11147918080606585533_telecom.wav",
+      "snr_db": -0.9728409658498831,
+      "stoi": 0.594964135567314,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 875,
+        "code_levels": [
+          125,
+          250,
+          500
+        ],
+        "encode_ms": 9.32885600013833,
+        "decode_ms": 7.4156529999527265
+      }
+    },
+    {
+      "preset": "telecom",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/11147918080606585533_telecom.wav",
+      "snr_db": 3.8799866645299366,
+      "stoi": 0.6707573682616175,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 1594,
+        "code_levels": [],
+        "encode_ms": 85.21673999985069,
+        "decode_ms": 72.41494899972167
+      }
+    },
+    {
+      "preset": "noise_telecom",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/11147918080606585533_noise_telecom.wav",
+      "snr_db": -1.7256984303663072,
+      "stoi": 0.6875732522235085,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 875,
+        "code_levels": [
+          125,
+          250,
+          500
+        ],
+        "encode_ms": 14.65141400012726,
+        "decode_ms": 11.153669000123045
+      }
+    },
+    {
+      "preset": "noise_telecom",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/11147918080606585533_noise_telecom.wav",
+      "snr_db": 3.193125266120187,
+      "stoi": 0.7290867134174498,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 1594,
+        "code_levels": [],
+        "encode_ms": 67.9618770000161,
+        "decode_ms": 71.6772900000251
+      }
+    },
+    {
+      "preset": "clean_reference",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/2512373209802184926_clean_reference.wav",
+      "snr_db": -0.5936189514975653,
+      "stoi": 0.6176452562331932,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 980,
+        "code_levels": [
+          140,
+          280,
+          560
+        ],
+        "encode_ms": 22.697561999848404,
+        "decode_ms": 14.334184000290406
+      }
+    },
+    {
+      "preset": "clean_reference",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/2512373209802184926_clean_reference.wav",
+      "snr_db": 5.7384309467618975,
+      "stoi": 0.6806617971566135,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 1792,
+        "code_levels": [],
+        "encode_ms": 73.83287299990116,
+        "decode_ms": 72.36306999993758
+      }
+    },
+    {
+      "preset": "telecom",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/2512373209802184926_telecom.wav",
+      "snr_db": -1.0532362309443912,
+      "stoi": 0.6342934997596046,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 980,
+        "code_levels": [
+          140,
+          280,
+          560
+        ],
+        "encode_ms": 9.636945000238484,
+        "decode_ms": 7.729304999884334
+      }
+    },
+    {
+      "preset": "telecom",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/2512373209802184926_telecom.wav",
+      "snr_db": 3.611341752031951,
+      "stoi": 0.6931953187577429,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 1792,
+        "code_levels": [],
+        "encode_ms": 75.76256199990894,
+        "decode_ms": 59.26322799996342
+      }
+    },
+    {
+      "preset": "noise_telecom",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/2512373209802184926_noise_telecom.wav",
+      "snr_db": -1.948335948824806,
+      "stoi": 0.7040240394782497,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 980,
+        "code_levels": [
+          140,
+          280,
+          560
+        ],
+        "encode_ms": 8.954358999744727,
+        "decode_ms": 7.405535000089003
+      }
+    },
+    {
+      "preset": "noise_telecom",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/2512373209802184926_noise_telecom.wav",
+      "snr_db": 1.4943585203089818,
+      "stoi": 0.7486774948448673,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 1792,
+        "code_levels": [],
+        "encode_ms": 58.13069199984966,
+        "decode_ms": 59.566064000136976
+      }
+    },
+    {
+      "preset": "clean_reference",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/12682843461389402977_clean_reference.wav",
+      "snr_db": 1.3022296939919236,
+      "stoi": 0.8374890737399414,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 581,
+        "code_levels": [
+          83,
+          166,
+          332
+        ],
+        "encode_ms": 33.29062700004215,
+        "decode_ms": 20.329788000253757
+      }
+    },
+    {
+      "preset": "clean_reference",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/12682843461389402977_clean_reference.wav",
+      "snr_db": 2.9429446339555736,
+      "stoi": 0.8283397773065961,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 1054,
+        "code_levels": [],
+        "encode_ms": 74.12101799991433,
+        "decode_ms": 68.20371200001318
+      }
+    },
+    {
+      "preset": "telecom",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/12682843461389402977_telecom.wav",
+      "snr_db": 0.43231218144380773,
+      "stoi": 0.8321849052163419,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 581,
+        "code_levels": [
+          83,
+          166,
+          332
+        ],
+        "encode_ms": 14.292949000264343,
+        "decode_ms": 15.707389999988663
+      }
+    },
+    {
+      "preset": "telecom",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/12682843461389402977_telecom.wav",
+      "snr_db": 3.2160547885904305,
+      "stoi": 0.8031411333902738,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 1054,
+        "code_levels": [],
+        "encode_ms": 61.214224999730504,
+        "decode_ms": 49.43775700030528
+      }
+    },
+    {
+      "preset": "noise_telecom",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/12682843461389402977_noise_telecom.wav",
+      "snr_db": 0.27104696934563727,
+      "stoi": 0.7761717942648451,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 581,
+        "code_levels": [
+          83,
+          166,
+          332
+        ],
+        "encode_ms": 8.910340999591426,
+        "decode_ms": 7.4639380000007804
+      }
+    },
+    {
+      "preset": "noise_telecom",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/12682843461389402977_noise_telecom.wav",
+      "snr_db": 2.932609923887534,
+      "stoi": 0.7641023309139878,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 1054,
+        "code_levels": [],
+        "encode_ms": 42.23120699998617,
+        "decode_ms": 42.90356499996051
+      }
+    },
+    {
+      "preset": "clean_reference",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/11265842188315045636_clean_reference.wav",
+      "snr_db": 3.3866000482913954,
+      "stoi": 0.5814104644060785,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 882,
+        "code_levels": [
+          126,
+          252,
+          504
+        ],
+        "encode_ms": 23.94514400020853,
+        "decode_ms": 15.543996999895171
+      }
+    },
+    {
+      "preset": "clean_reference",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/11265842188315045636_clean_reference.wav",
+      "snr_db": 5.795664901875567,
+      "stoi": 0.6193792560910354,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 1612,
+        "code_levels": [],
+        "encode_ms": 67.89928999978656,
+        "decode_ms": 64.37525399996957
+      }
+    },
+    {
+      "preset": "telecom",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/11265842188315045636_telecom.wav",
+      "snr_db": 1.41122962231998,
+      "stoi": 0.5986436804627037,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 882,
+        "code_levels": [
+          126,
+          252,
+          504
+        ],
+        "encode_ms": 8.801911999853473,
+        "decode_ms": 7.305743999950209
+      }
+    },
+    {
+      "preset": "telecom",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/11265842188315045636_telecom.wav",
+      "snr_db": 4.646001643485911,
+      "stoi": 0.6610183501519682,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 1612,
+        "code_levels": [],
+        "encode_ms": 65.77490100016803,
+        "decode_ms": 69.49259700013499
+      }
+    },
+    {
+      "preset": "noise_telecom",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/11265842188315045636_noise_telecom.wav",
+      "snr_db": -0.2980201031694118,
+      "stoi": 0.607033340428126,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 882,
+        "code_levels": [
+          126,
+          252,
+          504
+        ],
+        "encode_ms": 8.947762000389048,
+        "decode_ms": 7.76212700020551
+      }
+    },
+    {
+      "preset": "noise_telecom",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/11265842188315045636_noise_telecom.wav",
+      "snr_db": 3.380540277637621,
+      "stoi": 0.6439782547176126,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 1612,
+        "code_levels": [],
+        "encode_ms": 53.68460099998629,
+        "decode_ms": 54.89893399999346
+      }
+    },
+    {
+      "preset": "clean_reference",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/1724953769276277810_clean_reference.wav",
+      "snr_db": 1.2780370288356149,
+      "stoi": 0.8279455991408853,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 868,
+        "code_levels": [
+          124,
+          248,
+          496
+        ],
+        "encode_ms": 32.08475300016289,
+        "decode_ms": 19.432970999787358
+      }
+    },
+    {
+      "preset": "clean_reference",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/1724953769276277810_clean_reference.wav",
+      "snr_db": 1.6415828026196244,
+      "stoi": 0.8002057348684462,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 1576,
+        "code_levels": [],
+        "encode_ms": 65.23454600028344,
+        "decode_ms": 63.96844700020665
+      }
+    },
+    {
+      "preset": "telecom",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/1724953769276277810_telecom.wav",
+      "snr_db": 0.9274143116980098,
+      "stoi": 0.8870682394318685,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 868,
+        "code_levels": [
+          124,
+          248,
+          496
+        ],
+        "encode_ms": 9.216895999998087,
+        "decode_ms": 7.688025999868842
+      }
+    },
+    {
+      "preset": "telecom",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/1724953769276277810_telecom.wav",
+      "snr_db": 1.954838480798943,
+      "stoi": 0.8395704883161778,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 1576,
+        "code_levels": [],
+        "encode_ms": 69.9903390000145,
+        "decode_ms": 67.01614599978711
+      }
+    },
+    {
+      "preset": "noise_telecom",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/1724953769276277810_noise_telecom.wav",
+      "snr_db": 0.33178444050523836,
+      "stoi": 0.8020139310921259,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 868,
+        "code_levels": [
+          124,
+          248,
+          496
+        ],
+        "encode_ms": 9.265968999898178,
+        "decode_ms": 7.328411000344204
+      }
+    },
+    {
+      "preset": "noise_telecom",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/1724953769276277810_noise_telecom.wav",
+      "snr_db": 1.706019905336228,
+      "stoi": 0.7656592839443049,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 1576,
+        "code_levels": [],
+        "encode_ms": 52.31465600036245,
+        "decode_ms": 55.74753900009455
+      }
+    },
+    {
+      "preset": "clean_reference",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/5910253289107526048_clean_reference.wav",
+      "snr_db": 1.0257450849424743,
+      "stoi": 0.8494890246315074,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 1274,
+        "code_levels": [
+          182,
+          364,
+          728
+        ],
+        "encode_ms": 23.47771999984616,
+        "decode_ms": 15.684228999816696
+      }
+    },
+    {
+      "preset": "clean_reference",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/5910253289107526048_clean_reference.wav",
+      "snr_db": 3.547719496763407,
+      "stoi": 0.8362702045275325,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 2320,
+        "code_levels": [],
+        "encode_ms": 86.46972499991534,
+        "decode_ms": 85.38460599993414
+      }
+    },
+    {
+      "preset": "telecom",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/5910253289107526048_telecom.wav",
+      "snr_db": -0.39608652505822706,
+      "stoi": 0.7966137288052393,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 1274,
+        "code_levels": [
+          182,
+          364,
+          728
+        ],
+        "encode_ms": 9.128504000273097,
+        "decode_ms": 11.399028000141698
+      }
+    },
+    {
+      "preset": "telecom",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/5910253289107526048_telecom.wav",
+      "snr_db": 1.933360898773377,
+      "stoi": 0.7867376169593269,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 2320,
+        "code_levels": [],
+        "encode_ms": 73.59581099990464,
+        "decode_ms": 76.28512000019327
+      }
+    },
+    {
+      "preset": "noise_telecom",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/5910253289107526048_noise_telecom.wav",
+      "snr_db": -0.733768038522983,
+      "stoi": 0.7655093279236865,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 1274,
+        "code_levels": [
+          182,
+          364,
+          728
+        ],
+        "encode_ms": 11.30285899989758,
+        "decode_ms": 9.422386999631271
+      }
+    },
+    {
+      "preset": "noise_telecom",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/5910253289107526048_noise_telecom.wav",
+      "snr_db": 1.7130985920725736,
+      "stoi": 0.7689375244811946,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 2320,
+        "code_levels": [],
+        "encode_ms": 73.75950899995587,
+        "decode_ms": 76.24786399992445
+      }
+    },
+    {
+      "preset": "clean_reference",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/2939761992885557861_clean_reference.wav",
+      "snr_db": 3.067604356513611,
+      "stoi": 0.8047326117861326,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 882,
+        "code_levels": [
+          126,
+          252,
+          504
+        ],
+        "encode_ms": 8.995791999950598,
+        "decode_ms": 7.491037000363576
+      }
+    },
+    {
+      "preset": "clean_reference",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/2939761992885557861_clean_reference.wav",
+      "snr_db": 4.981757361848796,
+      "stoi": 0.7903773372810566,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 1602,
+        "code_levels": [],
+        "encode_ms": 80.19072000024607,
+        "decode_ms": 69.12025000019639
+      }
+    },
+    {
+      "preset": "telecom",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/2939761992885557861_telecom.wav",
+      "snr_db": 1.1583406826123275,
+      "stoi": 0.8118062178347598,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 882,
+        "code_levels": [
+          126,
+          252,
+          504
+        ],
+        "encode_ms": 9.377724999922066,
+        "decode_ms": 7.413480999730382
+      }
+    },
+    {
+      "preset": "telecom",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/2939761992885557861_telecom.wav",
+      "snr_db": 4.822894671850551,
+      "stoi": 0.7825245495635954,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 1602,
+        "code_levels": [],
+        "encode_ms": 60.34007299967925,
+        "decode_ms": 54.03266399980566
+      }
+    },
+    {
+      "preset": "noise_telecom",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/2939761992885557861_noise_telecom.wav",
+      "snr_db": -0.412157992713996,
+      "stoi": 0.7782851086419673,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 882,
+        "code_levels": [
+          126,
+          252,
+          504
+        ],
+        "encode_ms": 9.4141579997995,
+        "decode_ms": 7.8558260001955205
+      }
+    },
+    {
+      "preset": "noise_telecom",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/2939761992885557861_noise_telecom.wav",
+      "snr_db": 3.8622222899170873,
+      "stoi": 0.7698682140206582,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 1602,
+        "code_levels": [],
+        "encode_ms": 52.8076030000193,
+        "decode_ms": 54.44179599999188
+      }
+    },
+    {
+      "preset": "clean_reference",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/3236057319333367673_clean_reference.wav",
+      "snr_db": 3.0966268859009087,
+      "stoi": 0.8646919869904421,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 777,
+        "code_levels": [
+          111,
+          222,
+          444
+        ],
+        "encode_ms": 22.63677100017958,
+        "decode_ms": 14.14913299959153
+      }
+    },
+    {
+      "preset": "clean_reference",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/3236057319333367673_clean_reference.wav",
+      "snr_db": 5.260341555907923,
+      "stoi": 0.8366336217549467,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 1414,
+        "code_levels": [],
+        "encode_ms": 61.6615300000376,
+        "decode_ms": 64.98683199970401
+      }
+    },
+    {
+      "preset": "telecom",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/3236057319333367673_telecom.wav",
+      "snr_db": 2.070692200463046,
+      "stoi": 0.8265584240160154,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 777,
+        "code_levels": [
+          111,
+          222,
+          444
+        ],
+        "encode_ms": 11.064938999879814,
+        "decode_ms": 9.009244000026229
+      }
+    },
+    {
+      "preset": "telecom",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/3236057319333367673_telecom.wav",
+      "snr_db": 3.5989224877317567,
+      "stoi": 0.7874352077123827,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 1414,
+        "code_levels": [],
+        "encode_ms": 61.15749299988238,
+        "decode_ms": 48.64507299998877
+      }
+    },
+    {
+      "preset": "noise_telecom",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/3236057319333367673_noise_telecom.wav",
+      "snr_db": -0.47602007054911905,
+      "stoi": 0.8059998120875832,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 777,
+        "code_levels": [
+          111,
+          222,
+          444
+        ],
+        "encode_ms": 8.818861000236211,
+        "decode_ms": 7.424204000017198
+      }
+    },
+    {
+      "preset": "noise_telecom",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/3236057319333367673_noise_telecom.wav",
+      "snr_db": 2.874856790064435,
+      "stoi": 0.7795992754006211,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 1414,
+        "code_levels": [],
+        "encode_ms": 47.80817799974102,
+        "decode_ms": 43.522957999812206
+      }
+    },
+    {
+      "preset": "clean_reference",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/2782797728435367637_clean_reference.wav",
+      "snr_db": 3.527495191075804,
+      "stoi": 0.8138730467752957,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 854,
+        "code_levels": [
+          122,
+          244,
+          488
+        ],
+        "encode_ms": 21.73912800026301,
+        "decode_ms": 13.962550000087504
+      }
+    },
+    {
+      "preset": "clean_reference",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/2782797728435367637_clean_reference.wav",
+      "snr_db": 3.8655059927178703,
+      "stoi": 0.7896304850205383,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 1558,
+        "code_levels": [],
+        "encode_ms": 65.46173700007785,
+        "decode_ms": 62.403162000009615
+      }
+    },
+    {
+      "preset": "telecom",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/2782797728435367637_telecom.wav",
+      "snr_db": 1.2518277994638103,
+      "stoi": 0.8253251613671413,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 854,
+        "code_levels": [
+          122,
+          244,
+          488
+        ],
+        "encode_ms": 9.21076999975412,
+        "decode_ms": 7.607703000303445
+      }
+    },
+    {
+      "preset": "telecom",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/2782797728435367637_telecom.wav",
+      "snr_db": 3.2826508173757505,
+      "stoi": 0.7926447430968885,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 1558,
+        "code_levels": [],
+        "encode_ms": 66.68334400001186,
+        "decode_ms": 54.0843329999916
+      }
+    },
+    {
+      "preset": "noise_telecom",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/2782797728435367637_noise_telecom.wav",
+      "snr_db": -0.2806623523309982,
+      "stoi": 0.7959397546348116,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 854,
+        "code_levels": [
+          122,
+          244,
+          488
+        ],
+        "encode_ms": 8.877556000243203,
+        "decode_ms": 7.303663000129745
+      }
+    },
+    {
+      "preset": "noise_telecom",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/2782797728435367637_noise_telecom.wav",
+      "snr_db": 2.6687571995001975,
+      "stoi": 0.7885432097089067,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 1558,
+        "code_levels": [],
+        "encode_ms": 42.46797999985574,
+        "decode_ms": 53.001191999555886
+      }
+    },
+    {
+      "preset": "clean_reference",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/3529855487992513201_clean_reference.wav",
+      "snr_db": 2.851818987043926,
+      "stoi": 0.7792176881888603,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 469,
+        "code_levels": [
+          67,
+          134,
+          268
+        ],
+        "encode_ms": 26.315877999877557,
+        "decode_ms": 19.188722999842867
+      }
+    },
+    {
+      "preset": "clean_reference",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/3529855487992513201_clean_reference.wav",
+      "snr_db": 5.071121115514376,
+      "stoi": 0.7753521199644452,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 846,
+        "code_levels": [],
+        "encode_ms": 56.10473499973523,
+        "decode_ms": 42.74928499989983
+      }
+    },
+    {
+      "preset": "telecom",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/3529855487992513201_telecom.wav",
+      "snr_db": 0.616692844095019,
+      "stoi": 0.8397944679707037,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 469,
+        "code_levels": [
+          67,
+          134,
+          268
+        ],
+        "encode_ms": 9.065642999757983,
+        "decode_ms": 7.16083899988007
+      }
+    },
+    {
+      "preset": "telecom",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/3529855487992513201_telecom.wav",
+      "snr_db": 5.049490881686671,
+      "stoi": 0.7907832503095275,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 848,
+        "code_levels": [],
+        "encode_ms": 53.40795500023887,
+        "decode_ms": 50.2746259999185
+      }
+    },
+    {
+      "preset": "noise_telecom",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/3529855487992513201_noise_telecom.wav",
+      "snr_db": 0.3582311490863874,
+      "stoi": 0.7930276490389643,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 469,
+        "code_levels": [
+          67,
+          134,
+          268
+        ],
+        "encode_ms": 8.919076999973186,
+        "decode_ms": 7.5708169997597
+      }
+    },
+    {
+      "preset": "noise_telecom",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/3529855487992513201_noise_telecom.wav",
+      "snr_db": 4.438799811981696,
+      "stoi": 0.7794732747765828,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 848,
+        "code_levels": [],
+        "encode_ms": 36.4800379998087,
+        "decode_ms": 36.58044899975721
+      }
+    },
+    {
+      "preset": "clean_reference",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/17029455052229515619_clean_reference.wav",
+      "snr_db": 4.545184989203706,
+      "stoi": 0.9023695319437312,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 763,
+        "code_levels": [
+          109,
+          218,
+          436
+        ],
+        "encode_ms": 23.640396000246255,
+        "decode_ms": 15.045329999793466
+      }
+    },
+    {
+      "preset": "clean_reference",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/17029455052229515619_clean_reference.wav",
+      "snr_db": 5.642770124246839,
+      "stoi": 0.8558688276250149,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 1390,
+        "code_levels": [],
+        "encode_ms": 64.07668299971192,
+        "decode_ms": 61.04236100009075
+      }
+    },
+    {
+      "preset": "telecom",
+      "codec": "snac_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/17029455052229515619_telecom.wav",
+      "snr_db": 1.052604627198955,
+      "stoi": 0.844440851636975,
+      "pesq": null,
+      "stats": {
+        "codec": "snac_24khz",
+        "token_count": 763,
+        "code_levels": [
+          109,
+          218,
+          436
+        ],
+        "encode_ms": 9.457891999772983,
+        "decode_ms": 7.408644999941316
+      }
+    },
+    {
+      "preset": "telecom",
+      "codec": "encodec_24khz",
+      "source": "/content/telephony-codec-bench/data/telephony_speech/audio/17029455052229515619_telecom.wav",
+      "snr_db": 4.821786855093252,
+      "stoi": 0.8179505881967775,
+      "pesq": null,
+      "stats": {
+        "codec": "encodec_24khz",
+        "token_count": 1390,
+        "code_levels": [],
+        "encode_ms": 78.30977899993741,
+        "decode_ms": 63.58490999991773
+      }
+    }
+  ],
+  "summary": {
+    "encodec_24khz|clean_reference": {
+      "codec": "encodec_24khz",
+      "preset": "clean_reference",
+      "n": 17,
+      "snr_db_mean": 4.199459911193198,
+      "stoi_mean": 0.7737997772936454,
+      "pesq_mean": null,
+      "encode_ms_mean": 76.60450282347644,
+      "decode_ms_mean": 65.54095335294572
+    },
+    "encodec_24khz|noise_telecom": {
+      "codec": "encodec_24khz",
+      "preset": "noise_telecom",
+      "n": 16,
+      "snr_db_mean": 2.822248905581265,
+      "stoi_mean": 0.7665165059717581,
+      "pesq_mean": null,
+      "encode_ms_mean": 51.922306749958125,
+      "decode_ms_mean": 54.396565874952785
+    },
+    "encodec_24khz|telecom": {
+      "codec": "encodec_24khz",
+      "preset": "telecom",
+      "n": 17,
+      "snr_db_mean": 3.4911643891080306,
+      "stoi_mean": 0.7765902260543046,
+      "pesq_mean": null,
+      "encode_ms_mean": 66.54781011756688,
+      "decode_ms_mean": 59.474709470524594
+    },
+    "snac_24khz|clean_reference": {
+      "codec": "snac_24khz",
+      "preset": "clean_reference",
+      "n": 17,
+      "snr_db_mean": 1.9919823463843396,
+      "stoi_mean": 0.7774309079595463,
+      "pesq_mean": null,
+      "encode_ms_mean": 114.77748464708651,
+      "decode_ms_mean": 22.74900423529235
+    },
+    "snac_24khz|noise_telecom": {
+      "codec": "snac_24khz",
+      "preset": "noise_telecom",
+      "n": 16,
+      "snr_db_mean": -0.146365325477055,
+      "stoi_mean": 0.768745166255642,
+      "pesq_mean": null,
+      "encode_ms_mean": 9.595597812534606,
+      "decode_ms_mean": 8.00721312504038
+    },
+    "snac_24khz|telecom": {
+      "codec": "snac_24khz",
+      "preset": "telecom",
+      "n": 17,
+      "snr_db_mean": 0.2962800937438196,
+      "stoi_mean": 0.7860116700253883,
+      "pesq_mean": null,
+      "encode_ms_mean": 9.786150294102674,
+      "decode_ms_mean": 8.536809176428719
+    }
+  }
+}
