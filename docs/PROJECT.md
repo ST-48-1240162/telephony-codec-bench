@@ -273,3 +273,4 @@ The repo is an eval harness for phone-degraded speech, not a codec training fram
 |-----|----------|
 | [README.md](../README.md) | Install, pipeline diagram |
 | [COLAB.md](./COLAB.md) | Colab cells and pins |
+| [EVAL.md](./EVAL.md) | Optional eval + ablation suite (`feat/eval-ablations`) |

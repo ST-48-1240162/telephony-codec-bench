@@ -55,18 +55,7 @@ python scripts/run_snac_ablation.py \
   --out reports/snac_ablation.json
 ```
 
-**On [`feat/eval-ablations`](https://github.com/ST-48-1240162/telephony-codec-bench/tree/feat/eval-ablations) — full eval + ablation matrix (optional):** passthrough upper bound, 8 kHz nb eval domain, SNAC coarse-only, EnCodec bandwidth variants. One driver runs the recommended set:
-
-```sh
-git checkout feat/eval-ablations
-python scripts/run_ablation_suite.py \
-  --data-dir ./data/telephony_speech \
-  --device cuda \
-  --max-utterances 50 \
-  --out-dir reports/ablations
-```
-
-Use `--max-utterances` (balanced presets per utterance) on that branch instead of `--max-samples`.
+**On [`feat/eval-ablations`](https://github.com/ST-48-1240162/telephony-codec-bench/tree/feat/eval-ablations) — full eval + ablation matrix (optional):** passthrough upper bound, 8 kHz nb eval domain, SNAC coarse-only, EnCodec bandwidth variants. Step-by-step: **[docs/EVAL.md](docs/EVAL.md)**.
 
 ## Pipeline
 

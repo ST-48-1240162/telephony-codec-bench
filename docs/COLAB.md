@@ -126,6 +126,8 @@ Download `reports/benchmark.json` and `reports/benchmark.csv` when you are done.
 
 This strips fine-scale SNAC tokens and shows how much STOI you lose. Handy if you want to talk about hierarchical tokenizers in an interview.
 
+For the **full eval + ablation matrix** (passthrough, EnCodec bandwidth, `run_ablation_suite.py`), see **[EVAL.md](./EVAL.md)** on branch `feat/eval-ablations`.
+
 ---
 
 ## Research question
