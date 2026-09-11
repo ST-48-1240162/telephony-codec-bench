@@ -41,6 +41,33 @@ python scripts/run_benchmark.py \
 
 Generate `./data/telephony_speech` with noisekit first (see the Colab notebook).
 
+## Optional ablations
+
+The default benchmark above is enough to compare SNAC vs EnCodec on telephony-degraded speech. These are **extra** runs if you want to isolate one variable at a time (not required for the baseline numbers in `reports/baseline_pesq/`).
+
+**On `main` — SNAC token-rate (optional):** full hierarchical codes vs coarse-only. See [COLAB.md](docs/COLAB.md) cell 7 or the notebook section *Optional SNAC coarse-only ablation*.
+
+```sh
+python scripts/run_snac_ablation.py \
+  --data-dir ./data/telephony_speech \
+  --device cuda \
+  --max-samples 50 \
+  --out reports/snac_ablation.json
+```
+
+**On [`feat/eval-ablations`](https://github.com/ST-48-1240162/telephony-codec-bench/tree/feat/eval-ablations) — full eval + ablation matrix (optional):** passthrough upper bound, 8 kHz nb eval domain, SNAC coarse-only, EnCodec bandwidth variants. One driver runs the recommended set:
+
+```sh
+git checkout feat/eval-ablations
+python scripts/run_ablation_suite.py \
+  --data-dir ./data/telephony_speech \
+  --device cuda \
+  --max-utterances 50 \
+  --out-dir reports/ablations
+```
+
+Use `--max-utterances` (balanced presets per utterance) on that branch instead of `--max-samples`.
+
 ## Pipeline
 
 ```mermaid
