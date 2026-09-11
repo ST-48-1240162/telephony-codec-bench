@@ -56,7 +56,7 @@ REPO = "https://github.com/ST-48-1240162/telephony-codec-bench.git"
 
 ### 3. Install
 
-Copy the install cell from [COLAB.md §2](./COLAB.md) (system libs, `docs/colab-requirements.txt`, CUDA-matched `torch`/`torchaudio`, `pip install -e . --no-deps`, then `verify_colab_env.py --no-pip-check`).
+Copy the install cell from [COLAB.md §2](./COLAB.md) (system libs, `docs/colab-requirements.txt`, CUDA-matched `torch`/`torchaudio`, `pip install -e . --no-deps`, then `verify_colab_env.py --no-pip-check`). On `feat/eval-ablations`, `.python-env-compat.toml` sets `requires_cuda = true`, so **use a T4 runtime** before running verify — CPU-only sessions will fail here even though `run_benchmark.py` can fall back to CPU.
 
 ### 4. Generate telephony data (if needed)
 
@@ -65,16 +65,19 @@ Skip if `./data/telephony_speech/metadata.jsonl` already exists. Same as [COLAB.
 ```python
 SAMPLES = 50  # quick test; use 200 for a larger matrix
 
-!noisekit generate \
-  --dataset google/fleurs \
-  --config en_us \
-  --split test \
-  --samples {SAMPLES} \
-  --preset clean_reference \
-  --preset telecom \
-  --preset noise_telecom \
-  --output ./data/telephony_speech \
-  --seed 42
+import subprocess, sys
+subprocess.run([
+    "noisekit", "generate",
+    "--dataset", "google/fleurs",
+    "--config", "en_us",
+    "--split", "test",
+    "--samples", str(SAMPLES),
+    "--preset", "clean_reference",
+    "--preset", "telecom",
+    "--preset", "noise_telecom",
+    "--output", "./data/telephony_speech",
+    "--seed", "42",
+], check=True)
 ```
 
 50 utterances × 3 presets takes about 20–45 min on T4 (includes NISQA).
@@ -120,16 +123,24 @@ python scripts/run_ablation_suite.py \
   --out-dir reports/ablations
 ```
 
-Single-run equivalent (manual):
+Single-run equivalent (manual — must match `SUITE` flags in `run_ablation_suite.py`):
 
 ```sh
+# ablation_snac_coarse (24 kHz metric domain, default codecs subset)
+python scripts/run_benchmark.py \
+  --data-dir ./data/telephony_speech \
+  --device cuda \
+  --max-utterances 50 \
+  --codec snac_24khz --codec snac_24khz_coarse \
+  --out reports/ablations/ablation_snac_coarse.json
+
+# telephony_eval8k (8 kHz nb + PESQ; default SNAC + EnCodec)
 python scripts/run_benchmark.py \
   --data-dir ./data/telephony_speech \
   --device cuda \
   --max-utterances 50 \
   --eval-sr 8000 --pesq --pesq-mode nb \
-  --codec snac_24khz --codec snac_24khz_coarse \
-  --out reports/ablations/ablation_snac_coarse.json
+  --out reports/ablations/telephony_eval8k.json
 ```
 
 ---
