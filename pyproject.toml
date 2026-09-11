@@ -1,0 +1,52 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "telephony-codec-bench"
+version = "0.1.0"
+description = "Telephony-degraded speech neural codec benchmark: SNAC vs EnCodec round-trip eval (PESQ/STOI/latency)"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "GPL-3.0-or-later" }
+authors = [
+  { name = "Gewenxin Yu" },
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+  "Programming Language :: Python :: 3",
+  "Topic :: Multimedia :: Sound/Audio :: Analysis",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+  "numpy>=2.2.2,<2.3",
+  "soundfile>=0.12.1",
+  "scipy>=1.13,<2",
+]
+
+[project.optional-dependencies]
+metrics = [
+  "pystoi>=0.4.1",
+]
+bench = [
+  "torch>=2.11.0",
+  "torchaudio>=2.11.0",
+  "snac>=1.2.0",
+  "transformers>=4.40.0,<5.0.0",
+  "encodec>=0.1.1",
+  "datasets>=2.20,<4.0",
+  "huggingface-hub>=0.24.0,<1.0.0",
+  "librosa>=0.10.1,<0.12.0",
+  "pystoi>=0.4.1",
+  "pesq>=0.0.4",
+  "tqdm>=4.66.0",
+  "noisekit>=0.1.5,<0.2.0",
+  "fsspec==2025.3.0",
+]
+[project.scripts]
+telephony-codec-bench = "telephony_codec_bench.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/telephony_codec_bench"]

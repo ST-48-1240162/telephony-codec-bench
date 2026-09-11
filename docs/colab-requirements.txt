@@ -1,0 +1,27 @@
+# Colab install pins (Sep 2026).
+# Install torch/torchvision/torchaudio from download.pytorch.org FIRST (see notebook).
+# This file intentionally excludes torch (never install torch from plain PyPI).
+
+# HuggingFace stack (avoid datasets 4.x -> torchcodec on Colab)
+fsspec==2025.3.0
+datasets>=2.20,<4.0
+huggingface-hub>=0.24.0,<1.0.0
+transformers>=4.40.0,<5.0.0
+
+# Audio / metrics
+soundfile>=0.12.1
+librosa>=0.10.1,<0.12.0
+pystoi>=0.4.1
+pesq>=0.0.4
+
+# Codecs + data generation
+snac>=1.2.0
+encodec>=0.1.1
+noisekit>=0.1.5,<0.2.0
+
+# Numerics: keep numpy/pyarrow/numba in sync (avoid ufunc __module__ decode errors)
+numpy==2.2.2
+pyarrow>=19.0.0,<22.0.0
+numba>=0.61.0
+scipy>=1.13.0,<2.0.0
+tqdm>=4.66.0

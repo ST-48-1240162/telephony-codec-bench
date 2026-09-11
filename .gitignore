@@ -1,0 +1,14 @@
+.cursor/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+dist/
+build/
+data/
+reports/*.json
+reports/*.csv
+reports/*.png
+*.wav
+!tests/fixtures/*.wav
