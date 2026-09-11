@@ -12,33 +12,22 @@ DESC="Benchmark SNAC vs EnCodec on telephony-degraded speech (FLEURS + noisekit)
 HOMEPAGE="https://colab.research.google.com/github/ST-48-1240162/telephony-codec-bench/blob/main/docs/Telephony_Codec_Bench.ipynb"
 
 TOPICS=(
-  neural-audio-codec
-  speech-codec
   snac
   encodec
   telephony
-  pstn
-  pesq
-  stoi
-  speech-quality
   audio-benchmark
-  voice-ai
-  text-to-speech
-  pytorch
+  pesq
   google-colab
   fleurs
-  narrowband
-  round-trip
-  noise-robustness
-  rvq
 )
 
-args=(--description "$DESC" --homepage "$HOMEPAGE")
-for t in "${TOPICS[@]}"; do
-  args+=(--add-topic "$t")
-done
-
 echo "Updating $REPO ..."
-gh repo edit "$REPO" "${args[@]}"
+gh repo edit "$REPO" --description "$DESC" --homepage "$HOMEPAGE"
+
+# Replace topics wholesale (gh repo edit --add-topic does not remove stale ones).
+topic_json="$(printf '%s\n' "${TOPICS[@]}" | jq -R . | jq -s '{names: .}')"
+gh api -X PUT "repos/${REPO}/topics" \
+  -H "Accept: application/vnd.github+json" \
+  --input - <<<"$topic_json"
 
 echo "Done. Verify: https://github.com/${REPO}"
