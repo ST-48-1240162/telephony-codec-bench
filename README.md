@@ -1,8 +1,8 @@
 # telephony-codec-bench
 
-Phone audio is narrowband, companded, and often noisy. This repo asks a simple question: if you run that speech through a neural codec and back out, how much is left?
+Phone audio is narrowband, companded, and often noisy. After that degradation, a neural codec round-trip (encode then decode) removes additional STOI, PESQ, and bandwidth. This benchmark quantifies the loss.
 
-We compare **SNAC** (multi-scale tokens, the kind used in LLM-TTS stacks like Bland) with **EnCodec** (Meta's RVQ baseline). You get STOI, PESQ, SNR, and encode/decode timing.
+Benchmark compares **SNAC** (multi-scale tokens, the kind used in LLM-TTS stacks like Bland) with **EnCodec** (Meta's RVQ baseline). Metrics include STOI, PESQ, SNR, and encode/decode latency.
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ST-48-1240162/telephony-codec-bench/blob/main/docs/Telephony_Codec_Bench.ipynb)
 
@@ -46,32 +46,42 @@ Generate `./data/telephony_speech` with noisekit first (see the Colab notebook).
 ## Pipeline
 
 ```mermaid
-flowchart TD
-    WAV["speech WAV<br/>(LibriTTS + noisekit)"] --> DEG
+flowchart TB
+    classDef input fill:#dbeafe,stroke:#2563eb,stroke-width:2px,color:#1e3a8a
+    classDef preset fill:#f9fafb,stroke:#9ca3af,color:#374151
+    classDef snac fill:#fffbeb,stroke:#d97706,stroke-width:2px,color:#92400e
+    classDef encodec fill:#fdf2f8,stroke:#db2777,stroke-width:2px,color:#9d174d
+    classDef metrics fill:#d1fae5,stroke:#059669,stroke-width:2px,color:#065f46
 
-    subgraph DEG ["telephony degrade"]
+    IN["FLEURS + noisekit<br/>telephony WAVs"]:::input
+
+    subgraph DEG["Degradation presets"]
         direction LR
-        P1[clean_reference]
-        P2[telecom]
-        P3[noise_telecom]
+        P1[clean_reference]:::preset
+        P2[telecom]:::preset
+        P3[noise_telecom]:::preset
+        P1 ~~~ P2 ~~~ P3
     end
 
-    DEG --> SNAC & ENCODEC
+    IN --> DEG
+    DEG --> FORK{{round-trip}}
 
-    subgraph SNAC ["SNAC 24 kHz"]
+    subgraph SNAC["SNAC @ 24 kHz"]
         direction LR
-        S1[encode] --> S2[tokens] --> S3[decode]
+        S1[encode]:::snac --> S2[multi-scale tokens]:::snac --> S3[decode]:::snac
     end
 
-    subgraph ENCODEC ["EnCodec 24 kHz"]
+    subgraph ENCODEC["EnCodec @ 24 kHz"]
         direction LR
-        E1[encode] --> E2[tokens] --> E3[decode]
+        E1[encode]:::encodec --> E2[RVQ codes]:::encodec --> E3[decode]:::encodec
     end
 
-    SNAC --> MET
-    ENCODEC --> MET
+    FORK --> S1
+    FORK --> E1
+    S3 --> MET
+    E3 --> MET
 
-    MET["STOI, PESQ, SNR<br/>encode / decode latency"]
+    MET["STOI, PESQ, SNR<br/>8 kHz nb eval + latency"]:::metrics
 ```
 
 For a quick local test, `degrade.py` applies a simple 8 kHz bandpass, μ-law, and upsample. Full benchmark runs use [noisekit](https://github.com/karamouche/noisekit) `telecom` presets so numbers stay reproducible.
@@ -90,9 +100,9 @@ Codecs: [SNAC](https://github.com/hubertsiuzdak/snac) and EnCodec via HuggingFac
 
 On `telecom`, mean encode latency is about **10 ms** (SNAC) vs **60 ms** (EnCodec) on T4.
 
-**Comparison.** SNAC wins STOI on every preset and is roughly 6× faster to encode on telecom. EnCodec catches up on PESQ once the input is already phone-band or noisy: a small edge on `telecom`, a clearer one on `noise_telecom`. Clean-reference PESQ still favors SNAC.
+**Comparison.** SNAC STOI is higher on every preset and encode on telecom is roughly 6× faster. EnCodec PESQ leads once the input is already phone-band or noisy: a small edge on `telecom`, a larger one on `noise_telecom`. Clean-reference PESQ still favors SNAC.
 
-**Conclusion.** There is no single winner. For low-latency streaming tokenizers, SNAC's STOI and speed are the story. If you care about perceptual quality on dirty phone channels, EnCodec's RVQ holds up better in PESQ even when STOI is close. Choose metrics to match the deployment, not one leaderboard column.
+**Conclusion.** For low-latency streaming tokenizers, SNAC leads on STOI and encode latency. On degraded phone channels, EnCodec RVQ tends to score higher in PESQ even when STOI is close. Metric choice should match the deployment, not a single leaderboard column.
 
 ## References
 
