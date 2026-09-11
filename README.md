@@ -78,6 +78,22 @@ For a quick local test, `degrade.py` applies a simple 8 kHz bandpass, μ-law, an
 
 Codecs: [SNAC](https://github.com/hubertsiuzdak/snac) and EnCodec via HuggingFace `facebook/encodec_24khz`.
 
+## Results
+
+200 FLEURS utterances × 3 noisekit presets, codec round-trip at 24 kHz, metrics at **8 kHz nb** (`--eval-sr 8000 --pesq-mode nb`). Full numbers in [`reports/baseline_pesq/`](reports/baseline_pesq/).
+
+| Preset | SNAC STOI | EnCodec STOI | SNAC PESQ | EnCodec PESQ |
+|--------|-----------|--------------|-----------|--------------|
+| `clean_reference` | **0.795** | 0.784 | **2.58** | 2.27 |
+| `telecom` | **0.804** | 0.784 | 2.32 | **2.34** |
+| `noise_telecom` | **0.770** | 0.767 | 1.99 | **2.17** |
+
+On `telecom`, mean encode latency is about **10 ms** (SNAC) vs **60 ms** (EnCodec) on T4.
+
+**Comparison.** SNAC wins STOI on every preset and is roughly 6× faster to encode on telecom. EnCodec catches up on PESQ once the input is already phone-band or noisy: a small edge on `telecom`, a clearer one on `noise_telecom`. Clean-reference PESQ still favors SNAC.
+
+**Conclusion.** There is no single winner. For low-latency streaming tokenizers, SNAC's STOI and speed are the story. If you care about perceptual quality on dirty phone channels, EnCodec's RVQ holds up better in PESQ even when STOI is close. Choose metrics to match the deployment, not one leaderboard column.
+
 ## References
 
 1. [SNAC (2024)](https://arxiv.org/abs/2410.14411)
