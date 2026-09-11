@@ -29,8 +29,6 @@ python3.11 -m venv ~/.venvs/telephony-codec-bench
 python scripts/verify_colab_env.py
 ```
 
-Use a normal Linux filesystem. exFAT drives often break `.venv` symlinks.
-
 ## Full benchmark
 
 ```sh
