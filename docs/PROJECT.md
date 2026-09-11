@@ -43,7 +43,6 @@ flowchart TB
 
     subgraph drivers ["scripts/"]
         RUN["run_benchmark.py"]
-        PIPE["colab_run_pipeline.py"]
         ABL["run_snac_ablation.py"]
     end
 
@@ -56,7 +55,6 @@ flowchart TB
     SNAC & ENC --> MET
     MET --> AUD
     RUN --> BENCH
-    PIPE --> RUN
     ABL --> SNAC
 ```
 
@@ -68,7 +66,7 @@ flowchart TB
 
 | Path | Entry point | What it does |
 |------|-------------|--------------|
-| Colab | `noisekit generate` in `colab_run_pipeline.py` | FLEURS `en_us` test, 3 presets per utterance (`clean_reference`, `telecom`, `noise_telecom`). MUSAN noise on `noise_telecom`. Writes `data/telephony_speech/` and `metadata.jsonl`. |
+| Colab | `noisekit generate` (see [COLAB.md](./COLAB.md)) | FLEURS `en_us` test, 3 presets per utterance (`clean_reference`, `telecom`, `noise_telecom`). MUSAN noise on `noise_telecom`. Writes `data/telephony_speech/` and `metadata.jsonl`. |
 | Local | `degrade.apply_preset()` | Lightweight PSTN stand-in: 8 kHz bandpass (300-3400 Hz), μ-law, upsample. Optional 10 dB noise before telecom on `noise_telecom`. |
 
 Preset names match noisekit so local and Colab numbers stay comparable.
@@ -120,11 +118,9 @@ src/telephony_codec_bench/
 
 scripts/
 ├── run_benchmark.py           # main GPU driver
-├── colab_run_pipeline.py      # prefetch → noisekit → benchmark
-├── colab_prefetch_musan.py    # 20 MUSAN clips for noisekit
-├── run_snac_ablation.py       # SNAC full vs coarse-only
+├── run_snac_ablation.py       # SNAC full vs coarse-only (optional)
 ├── verify_colab_env.py        # dependency smoke test
-└── colab_remote_setup.py      # VM bootstrap
+└── compat_audit.py            # manifest checker (used by verify_colab_env)
 ```
 
 ---
@@ -208,14 +204,6 @@ python scripts/run_benchmark.py \
 
 Writes a matching `.csv` summary.
 
-### `colab_run_pipeline.py`
-
-1. `colab_prefetch_musan.py` (20 clips, cached)
-2. `noisekit generate`
-3. `run_benchmark.py` with telephony flags
-
-Use `--skip-generate` or `--skip-benchmark` to rerun one stage. Watch out for the HuggingFace streaming prefetch hanging after it finishes (see `colab_prefetch_musan.py`).
-
 ### `run_snac_ablation.py`
 
 Runs SNAC full vs coarse-only per WAV. Output: `reports/snac_ablation.json`. Not part of the default 200-sample report yet.
@@ -285,4 +273,3 @@ The repo is an eval harness for phone-degraded speech, not a codec training fram
 |-----|----------|
 | [README.md](../README.md) | Install, pipeline diagram |
 | [COLAB.md](./COLAB.md) | Colab cells and pins |
-| [COLAB_CLI.md](./COLAB_CLI.md) | Terminal workflow |
