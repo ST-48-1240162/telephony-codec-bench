@@ -9,7 +9,7 @@ from pathlib import Path
 import numpy as np
 import soundfile as sf
 
-from .audio import resample_mono
+from .audio import limit_noisekit_rows, resample_mono
 from .degrade import Preset, apply_preset
 from .metrics import MetricResult, compute_metrics
 from .codecs.registry import get_codec
@@ -148,6 +148,7 @@ def run_folder_benchmark(
     codec_names: list[str],
     presets: list[Preset | str] | None = None,
     max_samples: int | None = None,
+    max_utterances: int | None = None,
     device: str = "cpu",
     use_pesq: bool = False,
     pesq_mode: str = "auto",
@@ -157,8 +158,11 @@ def run_folder_benchmark(
     report = BenchmarkReport()
     noisekit_rows = _load_noisekit_manifest(data_dir)
     if noisekit_rows is not None:
-        if max_samples is not None:
-            noisekit_rows = noisekit_rows[:max_samples]
+        noisekit_rows = limit_noisekit_rows(
+            noisekit_rows,
+            max_rows=max_samples,
+            max_utterances=max_utterances,
+        )
         for path, preset in noisekit_rows:
             ref, sr = _load_wav(path)
             _benchmark_wav(

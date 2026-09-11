@@ -12,13 +12,18 @@ from .base import RoundtripStats
 
 
 class EnCodecCodec:
-    name = "encodec_24khz"
     sample_rate = 24000
 
-    def __init__(self, device: str = "cpu") -> None:
+    def __init__(self, device: str = "cpu", *, bandwidth: float | None = None) -> None:
         from transformers import EncodecModel, AutoProcessor
 
         self.device = torch.device(device)
+        self.bandwidth = bandwidth
+        if bandwidth is None:
+            self.name = "encodec_24khz"
+        else:
+            bw = int(bandwidth) if float(bandwidth).is_integer() else bandwidth
+            self.name = f"encodec_24khz_bw{bw}"
         self.processor = AutoProcessor.from_pretrained("facebook/encodec_24khz")
         self.model = EncodecModel.from_pretrained("facebook/encodec_24khz").eval().to(self.device)
 
@@ -35,11 +40,16 @@ class EnCodecCodec:
         )
         inputs = {k: v.to(self.device) for k, v in inputs.items()}
 
+        encode_kwargs: dict = {}
+        if self.bandwidth is not None:
+            encode_kwargs["bandwidth"] = self.bandwidth
+
         t0 = time.perf_counter()
         with torch.inference_mode():
             encoded = self.model.encode(
                 inputs["input_values"],
                 padding_mask=inputs["padding_mask"],
+                **encode_kwargs,
             )
         encode_ms = (time.perf_counter() - t0) * 1000.0
 

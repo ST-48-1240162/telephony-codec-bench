@@ -36,10 +36,23 @@ pip install -e '.[bench]'
 python scripts/run_benchmark.py \
   --data-dir ./data/telephony_speech \
   --device cuda \
+  --max-utterances 200 \
   --out reports/benchmark.json
 ```
 
 Generate `./data/telephony_speech` with noisekit first (see the Colab notebook).
+
+### Eval domain, baselines, and ablations
+
+| Goal | Command |
+|------|---------|
+| Telephony-band metrics (8 kHz STOI + nb PESQ) | add `--eval-sr 8000 --pesq --pesq-mode nb` |
+| Upper bound (no codec) | add `--codec passthrough` |
+| SNAC token-rate ablation | add `--codec snac_24khz --codec snac_24khz_coarse` |
+| EnCodec bandwidth ablation | add `--codec encodec_24khz --codec encodec_24khz_bw6 --codec encodec_24khz_bw12` |
+| Run the full recommended matrix | `python scripts/run_ablation_suite.py --data-dir ./data/telephony_speech --max-utterances 50` |
+
+Use `--max-utterances` (balanced presets per utterance) instead of `--max-samples` (raw manifest rows).
 
 ## Pipeline
 

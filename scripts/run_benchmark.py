@@ -33,7 +33,18 @@ def main() -> int:
         dest="presets",
         default=[p.value for p in Preset],
     )
-    parser.add_argument("--max-samples", type=int, default=200)
+    parser.add_argument(
+        "--max-samples",
+        type=int,
+        default=None,
+        help="Limit noisekit manifest rows (legacy; prefer --max-utterances)",
+    )
+    parser.add_argument(
+        "--max-utterances",
+        type=int,
+        default=200,
+        help="Limit unique utterances; keeps all presets per utterance",
+    )
     parser.add_argument("--device", default="cuda")
     parser.add_argument("--pesq", action="store_true")
     parser.add_argument(
@@ -65,6 +76,7 @@ def main() -> int:
         codec_names=args.codec,
         presets=args.presets,
         max_samples=args.max_samples,
+        max_utterances=args.max_utterances,
         device=device,
         use_pesq=use_pesq,
         pesq_mode=args.pesq_mode,
