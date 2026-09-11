@@ -36,6 +36,18 @@ def main() -> int:
     parser.add_argument("--max-samples", type=int, default=200)
     parser.add_argument("--device", default="cuda")
     parser.add_argument("--pesq", action="store_true")
+    parser.add_argument(
+        "--pesq-mode",
+        choices=["auto", "nb", "wb", "off"],
+        default="auto",
+        help="PESQ mode (use nb with --eval-sr 8000 for telephony)",
+    )
+    parser.add_argument(
+        "--eval-sr",
+        type=int,
+        default=None,
+        help="Metric evaluation sample rate (e.g. 8000 for telephony band)",
+    )
     parser.add_argument("--out", type=Path, default=Path("reports/benchmark.json"))
     args = parser.parse_args()
 
@@ -47,13 +59,16 @@ def main() -> int:
             print("CUDA not available; falling back to cpu", file=sys.stderr)
             device = "cpu"
 
+    use_pesq = args.pesq and args.pesq_mode != "off"
     report = run_folder_benchmark(
         args.data_dir,
         codec_names=args.codec,
         presets=args.presets,
         max_samples=args.max_samples,
         device=device,
-        use_pesq=args.pesq,
+        use_pesq=use_pesq,
+        pesq_mode=args.pesq_mode,
+        eval_sr=args.eval_sr,
     )
 
     args.out.parent.mkdir(parents=True, exist_ok=True)
@@ -83,9 +98,11 @@ def main() -> int:
     print(f"Wrote {csv_path}")
     for row in payload["summary"].values():
         stoi = row.get("stoi_mean")
+        pesq = row.get("pesq_mean")
         stoi_s = f"{stoi:.3f}" if stoi is not None else "n/a"
+        pesq_s = f"{pesq:.3f}" if pesq is not None else "n/a"
         print(
-            f"  {row['codec']:16} {row['preset']:18} STOI={stoi_s} "
+            f"  {row['codec']:16} {row['preset']:18} STOI={stoi_s} PESQ={pesq_s} "
             f"encode={row.get('encode_ms_mean')}ms"
         )
     return 0

@@ -66,7 +66,11 @@ def benchmark(samples: int, out: Path) -> None:
             "cuda",
             "--max-samples",
             str(samples),
+            "--eval-sr",
+            "8000",
             "--pesq",
+            "--pesq-mode",
+            "nb",
             "--out",
             str(out),
         ]

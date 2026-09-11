@@ -1,31 +1,31 @@
-# Telephony Codec Benchmark: Colab 教程
+# Telephony Codec Benchmark: Colab Guide
 
-> 面向 **不在本机跑 GPU** 的场景：在 **Google Colab T4** 上生成 telephony 数据并产出 SNAC vs EnCodec 可写进 CV 的数字。
+> For **GPU runs without a local machine**: generate telephony-degraded data on **Google Colab T4** and produce SNAC vs EnCodec numbers you can cite on a CV.
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ST-48-1240162/telephony-codec-bench/blob/main/docs/Telephony_Codec_Bench.ipynb)
 
-**一键 notebook：** [Telephony_Codec_Bench.ipynb](./Telephony_Codec_Bench.ipynb)
+**One-click notebook:** [Telephony_Codec_Bench.ipynb](./Telephony_Codec_Bench.ipynb)
 
 ---
 
-## 产出目标（L2 面试可用）
+## Deliverables (L2 interview-ready)
 
-| 指标 | 来源 | CV 示例 |
+| Metric | Source | CV example |
 |------|------|---------|
 | STOI mean | `reports/benchmark.csv` | `STOI 0.82 → 0.71 under telecom (SNAC 24k)` |
-| PESQ mean | 同上（`--pesq`） | `WB-PESQ 3.1 clean / 2.4 telecom` |
+| PESQ mean | same (`--pesq`) | `nb-PESQ 3.1 clean / 2.4 telecom @ 8 kHz` |
 | Token count | JSON `stats.token_count` | `SNAC hierarchical codes ~N tokens/utt` |
 | Latency | JSON `encode_ms` / `decode_ms` | `SNAC encode+decode ~12 ms/1s clip (T4)` |
 
 ---
 
-## 方案 A: Google Colab（推荐）
+## Option A: Google Colab (recommended)
 
 ### 1. Runtime
 
 **Runtime → Change runtime type → T4 GPU**
 
-### 2. Cell 1: 克隆
+### 2. Cell 1: Clone
 
 ```python
 REPO = "https://github.com/ST-48-1240162/telephony-codec-bench.git"
@@ -33,9 +33,9 @@ REPO = "https://github.com/ST-48-1240162/telephony-codec-bench.git"
 %cd telephony-codec-bench
 ```
 
-### 3. Cell 2: 依赖
+### 3. Cell 2: Dependencies
 
-版本 pin 见 [`docs/colab-requirements.txt`](./colab-requirements.txt) 与 [`.python-env-compat.toml`](../.python-env-compat.toml)。Install cell 会跑 `pip check` + `scripts/verify_colab_env.py`（读取 manifest）。
+Version pins: [`docs/colab-requirements.txt`](./colab-requirements.txt) and [`.python-env-compat.toml`](../.python-env-compat.toml). The install cell runs `pip check` + `scripts/verify_colab_env.py` (reads the manifest).
 
 ```python
 import sys
@@ -55,23 +55,23 @@ if not torch.cuda.is_available():
 !{sys.executable} scripts/verify_colab_env.py --no-pip-check
 ```
 
-**Colab 兼容策略**
+**Colab compatibility**
 
-| 冲突 | 处理 |
+| Conflict | Fix |
 |------|------|
-| `datasets` 4.x 要 torchcodec | pin `datasets>=2.20,<4.0` |
-| `datasets` 与 `fsspec==2025.12.0` 冲突 | pin `fsspec==2025.3.0`（datasets 3.x 上限） |
-| `numpy.ufunc` decode 报错 | pin `numpy==2.2.2` + `pyarrow>=19` + `numba>=0.61` 一起重装 |
-| `pip install [bench]` 升级 torch | Colab 用 `-e . --no-deps` + requirements 文件 |
-| torchvision 与 torch 版本不一致 | 只从 `download.pytorch.org` 装 vision/audio |
+| `datasets` 4.x requires torchcodec | pin `datasets>=2.20,<4.0` |
+| `datasets` vs `fsspec==2025.12.0` | pin `fsspec==2025.3.0` (datasets 3.x upper bound) |
+| `numpy.ufunc` decode errors | pin `numpy==2.2.2` + reinstall `pyarrow>=19` + `numba>=0.61` |
+| `pip install [bench]` upgrades torch | Colab: `-e . --no-deps` + requirements file |
+| torchvision / torch version mismatch | install vision/audio only from `download.pytorch.org` |
 | `transformers` 5.x / hub 2.x | pin `transformers<5`, `huggingface-hub<1` |
 | `audiomentations` / librosa | pin `librosa>=0.10.1,<0.12.0` |
 
-**本地 GPU 机器**（非 Colab）：先装匹配 CUDA 的 torch/torchaudio，再 `pip install -e '.[bench]'`。
+**Local GPU machine** (not Colab): install CUDA-matched torch/torchaudio first, then `pip install -e '.[bench]'`.
 
-### 4. Cell 3: 生成 telephony 数据（noisekit）
+### 4. Cell 3: Generate telephony data (noisekit)
 
-200 条 × 3 preset ≈ 45-90 min（含 NISQA）。快速试跑可 `--samples 50`。
+200 utterances × 3 presets ≈ 45–90 min (includes NISQA). Quick smoke: `--samples 50`.
 
 ```python
 !noisekit generate \
@@ -86,20 +86,22 @@ if not torch.cuda.is_available():
   --seed 42
 ```
 
-> LibriTTS 备选（需 HuggingFace license）：`--dataset mythicinfinity/libritts --config clean --split test.clean`
+> LibriTTS alternative (HuggingFace license required): `--dataset mythicinfinity/libritts --config clean --split test.clean`
 
-### 5. Cell 4: 跑 benchmark
+### 5. Cell 4: Run benchmark
 
 ```python
 !python scripts/run_benchmark.py \
   --data-dir ./data/telephony_speech \
   --device cuda \
   --max-samples 200 \
+  --eval-sr 8000 \
   --pesq \
+  --pesq-mode nb \
   --out reports/benchmark.json
 ```
 
-### 6. Cell 5: 查看 summary
+### 6. Cell 5: View summary
 
 ```python
 import json
@@ -110,9 +112,9 @@ for k, row in data["summary"].items():
     print(row)
 ```
 
-下载 `reports/benchmark.json` 和 `reports/benchmark.csv` 存档。
+Download `reports/benchmark.json` and `reports/benchmark.csv` for your records.
 
-### 7. Cell 6（可选 L2.5）: SNAC coarse-only ablation
+### 7. Cell 6 (optional L2.5): SNAC coarse-only ablation
 
 ```python
 !python scripts/run_snac_ablation.py \
@@ -122,17 +124,17 @@ for k, row in data["summary"].items():
   --out reports/snac_ablation.json
 ```
 
-面试话术：fine-scale tokens 掉多少 STOI，证明你理解 hierarchical tokenizer。
+Interview angle: quantify how much STOI drops when fine-scale tokens are removed — shows you understand hierarchical tokenizers.
 
 ---
 
-## 写进 CV 的 research question
+## Research question for your CV
 
 > Under simulated PSTN degradation (8 kHz, μ-law, ambient noise), how much intelligibility do **SNAC multi-scale tokens** retain vs **EnCodec RVQ** on round-trip reconstruction, and what is the encode/decode latency trade-off?
 
-## 参考 repo
+## Reference repos
 
-| Repo | 用途 |
+| Repo | Role |
 |------|------|
 | [hubertsiuzdak/snac](https://github.com/hubertsiuzdak/snac) | Bland-adjacent tokenizer |
 | [facebookresearch/encodec](https://github.com/facebookresearch/encodec) | RVQ baseline |

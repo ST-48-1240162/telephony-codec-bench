@@ -9,9 +9,9 @@ from pathlib import Path
 import numpy as np
 import soundfile as sf
 
+from .audio import resample_mono
 from .degrade import Preset, apply_preset
 from .metrics import MetricResult, compute_metrics
-from .codecs.base import CodecRoundtrip
 from .codecs.registry import get_codec
 
 
@@ -113,26 +113,30 @@ def _benchmark_wav(
     codec_names: list[str],
     device: str,
     use_pesq: bool,
+    pesq_mode: str = "auto",
+    eval_sr: int | None = None,
 ) -> None:
     degraded = np.asarray(wav)
     for codec_name in codec_names:
         codec = get_codec(codec_name, device=device)
         recon, stats = codec.roundtrip(degraded, sr)
-        eval_sr = getattr(codec, "sample_rate", sr)
-        ref_eval = degraded
-        if eval_sr != sr:
-            import torch
-            import torchaudio
-
-            ref_t = torch.from_numpy(degraded.astype(np.float32)).unsqueeze(0)
-            ref_eval = torchaudio.functional.resample(ref_t, sr, eval_sr).squeeze().numpy()
-        m = compute_metrics(ref_eval, recon, eval_sr, use_pesq=use_pesq)
+        codec_sr = getattr(codec, "sample_rate", sr) or sr
+        ref_for_metrics = resample_mono(degraded, sr, codec_sr)
+        metric_domain_sr = eval_sr if eval_sr is not None else codec_sr
+        m = compute_metrics(
+            ref_for_metrics,
+            recon,
+            codec_sr,
+            use_pesq=use_pesq,
+            pesq_mode=pesq_mode,
+            eval_sr=eval_sr,
+        )
         report.samples.append(
             SampleResult(
                 preset=preset,
                 codec=codec.name,
                 metrics=m,
-                stats=stats.to_dict(),
+                stats={**stats.to_dict(), "metric_sr": metric_domain_sr},
                 source=str(path),
             )
         )
@@ -146,6 +150,8 @@ def run_folder_benchmark(
     max_samples: int | None = None,
     device: str = "cpu",
     use_pesq: bool = False,
+    pesq_mode: str = "auto",
+    eval_sr: int | None = None,
 ) -> BenchmarkReport:
     """Benchmark WAV files under ``data_dir`` (flat or noisekit ``metadata.jsonl`` layout)."""
     report = BenchmarkReport()
@@ -164,6 +170,8 @@ def run_folder_benchmark(
                 codec_names=codec_names,
                 device=device,
                 use_pesq=use_pesq,
+                pesq_mode=pesq_mode,
+                eval_sr=eval_sr,
             )
         return report
 
@@ -187,5 +195,7 @@ def run_folder_benchmark(
                 codec_names=codec_names,
                 device=device,
                 use_pesq=use_pesq,
+                pesq_mode=pesq_mode,
+                eval_sr=eval_sr,
             )
     return report
