@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "telephony-codec-bench"
 version = "0.1.0"
-description = "Telephony-degraded speech neural codec benchmark: SNAC vs EnCodec round-trip eval (PESQ/STOI/latency)"
+description = "SNAC vs EnCodec round-trip benchmark on telephony-degraded speech (STOI, nb-PESQ @ 8 kHz, latency)"
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "GPL-3.0-or-later" }

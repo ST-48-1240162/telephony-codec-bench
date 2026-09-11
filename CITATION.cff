@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+title: telephony-codec-bench
+message: >-
+  If you use this benchmark, please cite it using the metadata from this file.
+type: software
+authors:
+  - family-names: Yu
+    given-names: Gewenxin
+repository-code: https://github.com/ST-48-1240162/telephony-codec-bench
+url: https://github.com/ST-48-1240162/telephony-codec-bench
+license: GPL-3.0-or-later
+version: 0.1.0
+date-released: 2026-09-11
+keywords:
+  - neural audio codec
+  - SNAC
+  - EnCodec
+  - telephony
+  - PESQ
+  - STOI
+  - speech quality
+  - voice AI
+abstract: >-
+  Benchmark SNAC vs EnCodec round-trip reconstruction on telephony-degraded
+  speech (FLEURS + noisekit). Reports STOI, narrowband PESQ at 8 kHz, SNR,
+  and encode/decode latency on GPU. Colab notebook and published baseline
+  results included.
